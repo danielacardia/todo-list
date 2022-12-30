@@ -26,13 +26,13 @@ const DetailCharacter = () => {
       .get(`${process.env.REACT_APP_HOST}/personajes/${id}`, getConfig())
       .then((res) => setSelectFavorite(res.data.data));
   }, []);
-
+//funcion para actualizar cambios
   const refresh = () => {
     axios
       .get(`${process.env.REACT_APP_HOST}/personajes/${id}`, getConfig())
       .then((res) => setSelectFavorite(res.data.data));
   };
-
+// estado actual del persomnaje / muerto/ vivo /desconocido
   const buttonStatus = (status) => {
     if (status === "Alive") {
       return <div className="statusAlived"></div>;

@@ -7,14 +7,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getUserThunk } from "../store/slices/User.slice";
-import imagen from "../images/Sin título-1.png";
+import imagen from "../images/a89ed403-fd86-4332-8efc-fdd96f1af74d.c9ebf9f1ed9c6f26964513ae14595c9d.png";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { register, handleSubmit, reset } = useForm();
-
+//control de formulario para iniciar sesion
   const onSubmit = (data) => {
     axios
       .post(`${process.env.REACT_APP_HOST}/usuarios/login`, data)

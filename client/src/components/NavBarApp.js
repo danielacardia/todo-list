@@ -9,6 +9,7 @@ const NavBarApp = () => {
   const token = localStorage.getItem("token", "");
   const navigate = useNavigate();
 
+  //cerrar sesion
   const logOut = () => {
     localStorage.setItem("token", "");
     navigate("/login");

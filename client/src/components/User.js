@@ -45,6 +45,7 @@ const User = () => {
 
   const handleClose = () => setShow(false);
 
+  //funcion para ejecutar el modal y setear el formulario de datos de usuario
   const handleShow = (user) => {
     setName(user.name);
     setBirthdate(user.birthdate);
@@ -74,6 +75,7 @@ const User = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  //asignar estado del pesonaje
   const buttonStatus = (status) => {
     if (status === "Alive") {
       return <div className="statusAlived"></div>;
@@ -90,12 +92,14 @@ const User = () => {
     adress,
   };
 
+  //submit para enviar informacion dectualizacion del usuario
   const onSubmit = () => {
     dispatch(editUserThunk(id, userEdit));
     handleClose();
     alert("se ha modificado el usuario con exito!");
   };
 
+  //funcion para almacenar favoritos
   const arrayCharacteres = () => {
     favoriteList.map((favorite) => {
       const character = favorite.ref_api;
@@ -107,6 +111,7 @@ const User = () => {
       .catch((error) => console.error(error));
   };
 
+  //funcion para mostrar favoritos
   const toFavorites = (id) => {
     dispatch(setView("favorites"));
     arrayCharacteres();
@@ -121,7 +126,7 @@ const User = () => {
       setActiveFavorites(true);
     }
   };
-
+  // funcion para mostrar todos los personajes
   const refreshList = () => {
     dispatch(setView("personajes"));
     axios
@@ -130,6 +135,7 @@ const User = () => {
     setActiveFavorites(false);
   };
 
+  //funcion para abriri un las caracteristicas de un personaje
   const gocharacterDetails = (id) => {
     const idCharacter = {
       id: id,
@@ -143,6 +149,7 @@ const User = () => {
     navigate(`/user/${id}`);
   };
 
+  //funcion para mostrar las taresas del usuario
   const viewToDo = () => {
     dispatch(setView("todo"));
   };

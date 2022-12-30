@@ -19,10 +19,10 @@ const ToDo = () => {
   useEffect(() => {
     dispatch(getToDoThunk());
   }, []);
-
+  //funcion para enviar datos de las tareas
   const onSubmit = (data, todo) => {
     if (IsEdit === false) {
-     if (data.title === "" || data.task === "") {
+      if (data.title === "" || data.task === "") {
         alert("No pueden haber campos vacios");
       } else {
         axios
@@ -39,6 +39,7 @@ const ToDo = () => {
           task: "",
         });
       }
+      //determinar que el usuario esta realizando una actualizacion y no creando una tarea nueva
     } else {
       axios
         .patch(
@@ -53,6 +54,7 @@ const ToDo = () => {
     }
   };
 
+  //editar tareas
   const editTask = (todo) => {
     setIsEdit(true);
     setIdTodo(todo.id);
@@ -60,6 +62,7 @@ const ToDo = () => {
     setValue("task", todo.task);
   };
 
+  //eliminar tareas (soft delete)
   const deleteTask = async (todo) => {
     setIdTodo(todo.id);
     await axios
@@ -117,10 +120,16 @@ const ToDo = () => {
                   <td>{todo.id}</td>
                   <td>{todo.title}</td>
                   <td>{todo.task}</td>
-                  <td className="editIcon" >
-                    <AiFillEdit className="iconed2 icon2" onClick={() => editTask(todo)}/>
-      
-                    <AiTwotoneDelete className="iconed"  onClick={() => deleteTask(todo)} />
+                  <td className="editIcon">
+                    <AiFillEdit
+                      className="iconed2 icon2"
+                      onClick={() => editTask(todo)}
+                    />
+
+                    <AiTwotoneDelete
+                      className="iconed"
+                      onClick={() => deleteTask(todo)}
+                    />
                   </td>
                 </tr>
               </tbody>

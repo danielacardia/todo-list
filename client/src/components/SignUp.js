@@ -18,6 +18,8 @@ const SignUp = () => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
+  //control del formulario de registro
+
   const onSubmit = (data) => {
     if (data.password === data.repeatPass) {
       axios
