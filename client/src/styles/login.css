@@ -33,7 +33,7 @@
 .imgContainer > img {
   height: 10rem;
   width: 10rem;
-  right: 2rem;
+  right: 9vw;
   top: 12rem;
   position: absolute;
   z-index: 20;

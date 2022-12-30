@@ -7,7 +7,7 @@ import getConfig from "../utils/getConfig";
 import { useSelector } from "react-redux";
 
 const DetailCharacter = () => {
-  const userInsession = useSelector(state=>state.user)
+  const userInsession = useSelector((state) => state.user);
   const [character, setCharacter] = useState([]);
   const { id } = useParams();
   const [button, setButton] = useState(true);
@@ -26,13 +26,13 @@ const DetailCharacter = () => {
       .get(`${process.env.REACT_APP_HOST}/personajes/${id}`, getConfig())
       .then((res) => setSelectFavorite(res.data.data));
   }, []);
-//funcion para actualizar cambios
+  //funcion para actualizar cambios
   const refresh = () => {
     axios
       .get(`${process.env.REACT_APP_HOST}/personajes/${id}`, getConfig())
       .then((res) => setSelectFavorite(res.data.data));
   };
-// estado actual del persomnaje / muerto/ vivo /desconocido
+  // estado actual del persomnaje / muerto/ vivo /desconocido
   const buttonStatus = (status) => {
     if (status === "Alive") {
       return <div className="statusAlived"></div>;
@@ -58,8 +58,7 @@ const DetailCharacter = () => {
     refresh();
   };
 
-   
-  console.log(userInsession)
+  console.log(userInsession);
   return (
     <div className="detailCharacterContainer">
       <div className="detailCharacter">
